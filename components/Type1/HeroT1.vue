@@ -5,12 +5,13 @@
       <div class="w-full grid md:grid-cols-2">
        <div class="md:text-left text-center px-[20px]">
         <h2 class="font-[800] capitalize xl:text-[50px] lg:text-[40px] sm:text-[30px] text-[24px] text-[#fff] mb-[24px]">
-            Unleash Your Brand Potential WIth Marketing Done Right
-          </h2>
+          {{ data?.agency_wizard.contact.introduction.intro_headline || 'Unleash Your Brand Potential WIth Marketing Done Right' }}
+        </h2>
         <p
-          class="font-[400] xl:text-[28px] lg:text-[24px] smtext-[20px] text-[16px] text-[#fff] leading-[-1.4px]"
+          class="font-[400] xl:text-[28px] lg:text-[24px] sm:text-[20px] text-[16px] text-[#fff] leading-[-1.4px]"
+          v-html="data?.agency_wizard.contact.introduction.intro_desc || 'Leverage our Exceptional Services to boost your Online Business growth.'"
         >
-        Leverage our Exceptional Services to boost your Online Business growth.
+          
         </p>
         <button class="md:mt-[48px] mt-[60px] xl:mb-[120px] lg:mb-[260px] md:mb-[150px] rounded-full md:px-[60px] px-[40px] md:py-[22px] py-[18px] bg-[#2C093C] text-[20px] text-[#fff]">
           Get Started
@@ -27,7 +28,11 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { WizardResponse } from '../../type';
+
+defineProps<{ data?: WizardResponse }>();
+</script>
 
 <style scoped>
 .op-hero {

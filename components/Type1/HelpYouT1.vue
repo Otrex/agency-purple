@@ -17,33 +17,9 @@
                 <h1
                   :class="`lg:text-[48px] text-[#333] sm:text-[32px] text-[20px] font-bold pb-[32px]`"
                 >
-                  Empowering Your Digital Success with [COMPANY NAME]: Expert
-                  Solutions for the Digital Age.
+                  {{ data?.agency_wizard.contact.help.help_headline || 'Empowering Your Digital Success with [COMPANY NAME]: Expert Solutions for the Digital Age.'}}
                 </h1>
-                <p class="sm:text-[16px] text-[14px] pb-3">
-                  At [COMPANY NAME], we understand that navigating the
-                  complexities of the digital age can be daunting. That's why our
-                  team of experts is dedicated to helping you succeed. Whether
-                  yo're a small business owner, an entrepreneur, or a busy
-                  professional, we offer a wide range of services that cover every
-                  aspect of your online presence.
-                </p>
-                <p class="sm:text-[16px] text-[14px] pb-3">
-                  With our in-depth understanding of the online market, we create
-                  stunning and high-converting Sales copies, Video Scripts, blog
-                  post creation, Ads campaign copies, business proposals and so
-                  much more that captures attention, drives engagement for your
-                  business, and aligns with your brand messaging. We employ
-                  conversion-focused strategies, utilizing persuasive content,
-                  call-to-actions, and conversion tracking to drive desired
-                  actions and boost sales for your business.
-                </p>
-                <p class="sm:text-[16px] text-[14px] pb-3">
-                  Choose [COMPANY NAME] as your trusted partner for exceptional
-                  online marketing assets. Contact us today and experience the
-                  comprehensive solutions that will propel your business to new
-                  heights.
-                </p>
+                <p v-html="data?.agency_wizard.contact.help.help_desc" class="sm:text-[16px] text-[14px] pb-3"></p>
                 <button
                   :class="`py-3 px-6 bg-[#AB3ADD] rounded-full text-white mt-[20px]`"
                 >
@@ -65,6 +41,9 @@
   </template>
   
   <script setup lang="ts">
+  import { WizardResponse } from '../../type';
+
+defineProps<{ data?: WizardResponse }>();
   </script>
   
   <style scoped></style>
