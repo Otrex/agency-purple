@@ -1,0 +1,9 @@
+{
+  "script": "yarn preview",
+  "watch": true,
+  "ignore_watch": ["public"],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "name": "nuxt-server"
+}
