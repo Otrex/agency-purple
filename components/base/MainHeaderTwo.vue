@@ -5,7 +5,7 @@
    >
      <div class="max-w-[1200px] mx-auto w-full flex items-center justify-between">
        <div>
-         <img class="sm:w-[200px] w-[120px]" :src="isScrolled ? '/icons/logo.svg' : '/icons/footer_logo.svg'" alt="agency_ai_logo">
+         <img class="sm:w-[200px] w-[120px]" :src="data?.agency_wizard.website_details.logo || '/icons/footer_logo.svg' " alt="agency_ai_logo">
        </div>
        <nav class="nav-desktop">
          <ul :class="`header_two flex items-center lg:space-x-8 space-x-4 ${isScrolled ? 'text-[#AC3BDE]' : 'text-[#fff]'}`">
@@ -34,7 +34,7 @@
      <transition name="slide-fade" mode="out-in">
      <aside class="nav-mobile" v-if="mobileNavOpen" key="mobileNav">
        <div class="mb-12">
-         <img class="w-[120px]" src="/icons/footer_logo.svg" alt="agency_ai_logo">
+         <img class="w-[120px]" :src="data?.agency_wizard.website_details.logo || '/icons/footer_logo.svg' " alt="agency_ai_logo">
        </div>
        <nav>
          <ul class="header_two flex items-start flex-col space-y-6 text-[#fff]">
@@ -52,8 +52,11 @@
  
  
  <script setup lang="ts">
- import { ref, onMounted } from 'vue';
+ import { WizardResponse } from '../../type';
+import { ref, onMounted } from 'vue';
  
+ defineProps<{ data?: WizardResponse }>();
+
  const isScrolled = ref(false);
  const mobileNavOpen = ref(false);
  const route = useRoute as any

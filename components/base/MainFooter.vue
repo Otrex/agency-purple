@@ -5,24 +5,24 @@
     >
       <div class="py-[60px] w-full flex md:flex-row flex-col items-start justify-between">
         <div class="xl:w-[40%] lg:w-[30%]">
-          <img src="/icons/footer_logo.svg" alt="Footer Logo" />
+          <img :src="data?.agency_wizard.website_details.logo" alt="Footer Logo" />
         </div>
         <div class="grid lg:grid-cols-3 md:grid-cols-2 items-start md:mt-[0] mt-[40px]">
           <div class="md:text-[18px] text-[16px] md:mb-[0] mb-[32px] leading-[-1px]">
             <p class="text-[#626262] mb-[4px]">Address</p>
             <p class="text-[#fff] font-[500]">
-              48180, Eureka Rd, Taylor, Michigan, USA
+              {{data?.agency_wizard.contact.address.address1 || '48180, Eureka Rd, Taylor, Michigan, USA'}}
             </p>
           </div>
           <div>
             <div class="md:text-[18px] text-[16px] md:mb-[0] mb-[32px] leading-[-1px]">
               <p class="text-[#626262] mb-[4px]">Phone</p>
-              <p class="text-[#fff] font-[500]">(734) 287-6619</p>
+              <p class="text-[#fff] font-[500]">{{ data?.agency_wizard.contact.address?.phone || '(734) 287-6619'}}</p>
             </div>
             <div class="mt-[10px] md:text-[18px] text-[16px] leading-[-1px]">
               <p class="text-[#626262] mb-[4px]">Email</p>
-              <a class="text-[#fff] font-[500]" href:mailto="info@agencyai.com"
-                >info@agencyai.com</a
+              <a class="text-[#fff] font-[500]" href:mailto="{{ data?.agency_wizard.contact.address.email || 'info@agencyai.com'}}"
+                >{{ data?.agency_wizard.contact.address.email || 'info@agencyai.com'}}</a
               >
             </div>
           </div>
@@ -45,6 +45,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { WizardResponse } from "../../type";
+
+defineProps<{ data?: WizardResponse }>();
+</script>
 
 <style></style>

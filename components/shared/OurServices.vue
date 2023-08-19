@@ -2,7 +2,7 @@
   <main class="d-container">
     <section id="our-services">
         <h1
-          :class="`relative ${titleColor} sm:pb-[70px] pb-[35px] lg:text-[48px] sm:text-[32px] text-[26px] font-bold text-center`"
+          :class="`relative ${titleColor || 'text-[#333]'} sm:pb-[70px] pb-[35px] lg:text-[48px] sm:text-[32px] text-[26px] font-bold text-center`"
         >
           Our Services
         </h1>
@@ -16,15 +16,15 @@
           >
             <img
               class="w-full rounded-t-[10px] mx-auto"
-              :src="service.icon"
+              :src="service.metaImage || ''"
               alt="icon"
             />
             <h1
-              :class="`sm:text-[20px] text-[16px] sm:pt-[30px] pt-[10px] ${headerTextColor} pb-2 font-bold`"
+              :class="`sm:text-[20px] text-[16px] sm:pt-[30px] pt-[10px] ${headerTextColor || 'text-[#333]'} pb-2 font-bold`"
             >
-              {{ service.header }}
+              {{ service.name }}
             </h1>
-            <p class="sm:text-[16px] text-[14px]">{{ service.desc }}</p>
+            <p class="sm:text-[16px] text-[14px]">{{ service.description }}</p>
           </div>
         </div>
         <div
@@ -46,17 +46,16 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  headerTextColor: {
-    type: String,
-    default: 'text-[#333]'
-  },
-  titleColor: {
-    type: String,
-    default: 'text-[#333]'
-  }
-})
-const ourServices = ref([
+import { WizardResponse } from "../../type";
+
+const props = defineProps<{
+  data?: WizardResponse,
+  headerTextColor?: string,
+  titleColor?: string
+}>()
+
+const ourServices = computed(() => props.data?.agency_wizard.services)
+const xourServices = ref([
   {
     header: "Copywriting",
     desc: "At [COMPANY NAME], we understand that navigating the complexities of the digital age can be daunting.",
