@@ -69,7 +69,10 @@ useHead(() => ({
     } 
   ],
   script: [
-    { innerHTML: state.value?.agency_wizard.website_details.customJavascript || 'null', type: "text/javascript" },
+    { 
+      innerHTML: state.value?.agency_wizard.website_details.customJavascript || 'null', 
+      type: "text/javascript" 
+    },
   ]
 }))
 
