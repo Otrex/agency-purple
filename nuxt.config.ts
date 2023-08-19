@@ -4,5 +4,10 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css:[
     '~~/assets/css/style.css'
-  ]
+  ],
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.SERVER_URL,
+    }
+  }
 })
