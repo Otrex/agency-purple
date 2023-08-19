@@ -67,6 +67,9 @@ useHead(() => ({
       type: "image/png", 
       href: state.value?.agency_wizard.website_details.favIcon 
     } 
+  ],
+  script: [
+    { innerHTML: state.value?.agency_wizard.website_details.customJavascript || 'null', type: "text/javascript" },
   ]
 }))
 
