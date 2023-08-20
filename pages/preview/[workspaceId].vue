@@ -49,7 +49,7 @@ const state = ref<WizardResponse>();
 const config = useRuntimeConfig();
 const route = useRoute();
 
-onMounted(async () => {
+onBeforeMount(async () => {
   try {
     const result = await axios.get(`${config.public.baseURL}/d/${route.params.workspaceId}/wizard`);
     const data = result.data as WizardResponse;

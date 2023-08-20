@@ -70,7 +70,6 @@ import { ref, onMounted } from 'vue';
  };
  
  const toggleMobileNav = () => {
-   console.log('hgjgh')
    mobileNavOpen.value = !mobileNavOpen.value;
  };
 
