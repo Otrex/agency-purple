@@ -1,5 +1,5 @@
 {
-  "script": "npx serve ./.output/public",
+  "script": "npx serve -p 3001 ./.output/public",
   "watch": true,
   "ignore_watch": ["public"],
   "watch_options": {
