@@ -9,6 +9,10 @@
     "postinstall": "nuxt prepare",
     "start:pm2": "yarn && yarn generate && pm2 start pm2-process.json && rm -r node_modules"
   },
+  "engines": {
+    "node": ">=16.14",
+    "npm": "6.14.13"
+  },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
